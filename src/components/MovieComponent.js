@@ -15,6 +15,12 @@ class MovieComponent extends React.Component {
         });  
     }
 
+    componentDidUpdate() {
+        MovieService.getMovies().then((response) => {
+            this.setState({ movies: response.data })
+        }); 
+    }
+
     render() {
         return (
             <div>
@@ -42,6 +48,7 @@ class MovieComponent extends React.Component {
                         }
                     </tbody>
                 </table>
+                
             </div>
         )
     }
