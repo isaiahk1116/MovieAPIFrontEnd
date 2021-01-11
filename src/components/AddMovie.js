@@ -13,21 +13,11 @@ class AddMovie extends React.Component {
         }
     }
 
-    handleTitleChange = event => {
-        this.setState({
-            title: event.target.value
-        })
-    }
+    handleChange = e => {
+        e.preventDefault();
 
-    handleDirectorChange = event => {
         this.setState({
-            director: event.target.value
-        })
-    }
-
-    handleDurationChange = event => {
-        this.setState({
-            duration: event.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -50,22 +40,25 @@ class AddMovie extends React.Component {
                     type="text"
                     required
                     placeholder="Title"
+                    name="title"
                     value={this.state.title}
-                    onChange={this.handleTitleChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input 
                     type="text"
                     required
                     placeholder="Director"
+                    name="director"
                     value={this.state.director}
-                    onChange={this.handleDirectorChange}
+                    onChange={this.handleChange}
                 ></input>
                 <input 
                     type="number"
                     required
                     placeholder="Duration"
+                    name="duration"
                     value={this.state.duration}
-                    onChange={this.handleDurationChange}
+                    onChange={this.handleChange}
                 ></input>
                 <button onClick={this.clickHandler}>Add Movie</button>
             </div>
