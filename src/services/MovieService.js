@@ -18,7 +18,7 @@ class MovieService {
     }
 
     deleteMovie(movie) {
-        axios.delete(MOVIES_REST_API_URL + "movie?id=" + movie.id, { 
+        axios.delete(MOVIES_REST_API_URL + movie.id, { 
             movie
         }).then(function (response) {
             console.log(response);

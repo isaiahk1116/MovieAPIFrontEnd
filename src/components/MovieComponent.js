@@ -22,8 +22,6 @@ class MovieComponent extends React.Component {
     }
 
     clickHandler = movie => e => {
-        console.log(movie);
-
         MovieService.deleteMovie(movie);
     }
 
