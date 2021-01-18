@@ -21,6 +21,12 @@ class MovieComponent extends React.Component {
         }); 
     }
 
+    clickHandler = movie => e => {
+        console.log(movie);
+
+        MovieService.deleteMovie(movie);
+    }
+
     render() {
         return (
             <div>
@@ -43,6 +49,7 @@ class MovieComponent extends React.Component {
                                     <td>{movie.title}</td>
                                     <td>{movie.director}</td>
                                     <td>{movie.duration}</td>
+                                    <td><button onClick={this.clickHandler(movie)}>Delete</button></td>
                                 </tr>
                             )
                         }
