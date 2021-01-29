@@ -2,14 +2,13 @@ import React from 'react';
 import MovieService from '../services/MovieService';
 
 class AddMovie extends React.Component {
-
     constructor(props) {
         super(props)
 
         this.state = {
             title: '',
-            director: '',
-            duration: ''
+            genre: '',
+            year: ''
         }
     }
 
@@ -28,8 +27,8 @@ class AddMovie extends React.Component {
 
         this.setState({
             title: '',
-            director: '',
-            duration: ''
+            genre: '',
+            year: ''
         })
     }
 
@@ -47,17 +46,17 @@ class AddMovie extends React.Component {
                 <input 
                     type="text"
                     required
-                    placeholder="Director"
-                    name="director"
-                    value={this.state.director}
+                    placeholder="Genre"
+                    name="genre"
+                    value={this.state.genre}
                     onChange={this.handleChange}
                 ></input>
                 <input 
                     type="number"
                     required
-                    placeholder="Duration"
-                    name="duration"
-                    value={this.state.duration}
+                    placeholder="Release Year"
+                    name="year"
+                    value={this.state.year}
                     onChange={this.handleChange}
                 ></input>
                 <button onClick={this.clickHandler}>Add Movie</button>
