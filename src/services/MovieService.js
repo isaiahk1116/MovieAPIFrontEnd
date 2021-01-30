@@ -7,11 +7,26 @@ class MovieService {
         return axios.get(MOVIES_REST_API_URL);
     }
 
+    getMovie(title) {   
+        console.log(title);
+    }
+
     addMovie(movie) {
         axios.post(MOVIES_REST_API_URL, {
             'title': movie.title,
-            'director': movie.director,
-            'duration': movie.duration
+            'genre': movie.genre,
+            'year': movie.year
+        }).then(function (response) {
+            console.log(response);
+        })
+    }
+
+    putMovie(movie) {
+        axios.put(MOVIES_REST_API_URL + movie.id, {
+            'id': movie.id,
+            'title': movie.title,
+            'genre': movie.genre,
+            'year': movie.year
         }).then(function (response) {
             console.log(response);
         })

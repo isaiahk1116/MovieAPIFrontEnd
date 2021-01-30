@@ -1,11 +1,13 @@
 import React from 'react';
 import MovieService from '../services/MovieService';
+import UpdateMovie from './UpdateMovie';
+import AddMovie from './AddMovie';
 
 class MovieComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            movies:[]
+            movies:[],
         }
     }
 
@@ -25,17 +27,20 @@ class MovieComponent extends React.Component {
         MovieService.deleteMovie(movie);
     }
 
+    handleChange = movie => e => {
+        e.preventDefault();
+    }
+
     render() {
         return (
-            <div>
-                <h1>List of Movies</h1>
-                <table>
+            <div className="container">
+                <h1>Movies to Watch Later</h1>
+                <table className="table">
                     <thead>
                         <tr>
-                            <td>Id</td>
                             <td>Title</td>
-                            <td>Director</td>
-                            <td>Duration</td>
+                            <td>Genre</td>
+                            <td>Release Year</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,17 +48,17 @@ class MovieComponent extends React.Component {
                             this.state.movies.map(
                                 movie =>
                                 <tr key = {movie.id}>
-                                    <td>{movie.id}</td>
                                     <td>{movie.title}</td>
-                                    <td>{movie.director}</td>
-                                    <td>{movie.duration}</td>
-                                    <td><button onClick={this.clickHandler(movie)}>Delete</button></td>
+                                    <td>{movie.genre}</td>
+                                    <td>{movie.year}</td>
+                                    <td><UpdateMovie movie={movie} /></td>
+                                    <td><button className="delete-btn" onClick={this.clickHandler(movie)}>x</button></td>
                                 </tr>
                             )
                         }
                     </tbody>
                 </table>
-                
+                <AddMovie />
             </div>
         )
     }

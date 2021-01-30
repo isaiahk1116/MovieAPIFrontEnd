@@ -1,0 +1,62 @@
+body {
+    background-color: #191970;
+}
+
+.App {
+    width: 450px;
+    margin: 0 auto;
+}
+
+button {
+    font-family: Tahoma, sans-serif;
+}
+
+.btn {
+    background-color: #191970;
+    color: white;
+    margin-top: 5px;
+    height: 20px;
+}
+
+.delete-btn {
+    background-color: white;
+    color: black;
+}
+
+.update-btn {
+    background-color: #191970;
+    color: white;
+}
+
+.container h1 {
+    text-align: center;
+    font-family: Tahoma, sans-serif;
+}
+
+.container {
+    background-color: #F8F8FF;	
+    padding: 20px 30px;
+    border-radius: 25px;
+    background-position: left top;
+    background-repeat: repeat;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form input {
+    max-width: 25%;
+    margin: 5px;
+}
+
+.table {
+    font-family: Tahoma, sans-serif;
+}
+
+.pop-up {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 375px;
+}
