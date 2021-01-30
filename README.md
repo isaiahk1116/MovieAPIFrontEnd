@@ -12,6 +12,12 @@ Movies to Watch Later React App
 * Axios.js
 * HTML/CSS
 
-# Example
+# Examples
+![MovieAPIFrontEndAddss](https://user-images.githubusercontent.com/35928224/106366906-f2d90b80-630c-11eb-990b-b5c5605f63d0.png)
+
+![MovieAPIFrontEndUpdatess](https://user-images.githubusercontent.com/35928224/106366927-fff5fa80-630c-11eb-871e-c3ec7561575a.png)
+
+![MovieAPIFrontEndResponsivess](https://user-images.githubusercontent.com/35928224/106366935-0a17f900-630d-11eb-826e-8fb7fc4135fb.png)
+
 
 
