@@ -6,31 +6,35 @@ import AddMovie from './AddMovie';
 class MovieComponent extends React.Component {
     constructor(props) {
         super(props)
+
+        // Initializes movie array as empty
         this.state = {
             movies:[],
         }
     }
 
+    // Makes sure the app retrieves all of the data before doing anything else 
     componentDidMount() {
         MovieService.getMovies().then((response) => {
             this.setState({ movies: response.data })
         });  
     }
 
+    // When this component update, retrieve all of the data once more (keeps everything up to date with database)
     componentDidUpdate() {
         MovieService.getMovies().then((response) => {
             this.setState({ movies: response.data })
         }); 
     }
 
+    // Sends movie to be potentially deleted from database
     clickHandler = movie => e => {
+        e.preventDefault();
+        
         MovieService.deleteMovie(movie);
     }
 
-    handleChange = movie => e => {
-        e.preventDefault();
-    }
-
+    // Displays the list of movies 
     render() {
         return (
             <div className="container">

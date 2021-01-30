@@ -6,6 +6,7 @@ class UpdateMovie extends React.Component {
     constructor(props) {
         super(props)
 
+        // Initaliizes state with props values
         this.state = {
             modalIsOpen: false,
             id: this.props.movie.id,
@@ -15,16 +16,16 @@ class UpdateMovie extends React.Component {
         }
     }
 
+    // Opens the modal 
     openModal = e => {
+        e.preventDefault();
+
         this.setState({ 
             modalIsOpen: true,
-            id: this.props.movie.id,
-            title: this.props.movie.title,
-            genre: this.props.movie.genre,
-            year: this.props.movie.year 
         })
     }
 
+    // Text dynamically changes in the input field as the user is typing
     handleChange = e => {
         e.preventDefault();
 
@@ -33,6 +34,7 @@ class UpdateMovie extends React.Component {
         })
     }
 
+    // Sends a movie object to be potentially updated in the database. Then closes the modal.
     update = e => {
         e.preventDefault();
 
@@ -45,38 +47,39 @@ class UpdateMovie extends React.Component {
 
         MovieService.putMovie(movie)
 
-
         this.setState({ modalIsOpen: false })
     }
 
+    // Displays the modal
     render() {
         return(
             <>
             <button className="update-btn" onClick={this.openModal}>Update</button>
+            {/* onReuqestClose and shouldCloseonOverlayClick enable the user to close the modal by clicking outside of it */}
             <Modal className="pop-up" isOpen={this.state.modalIsOpen} ariaHideApp={false} onRequestClose={() => this.setState({ modalIsOpen: false })} shouldCloseOnOverlayClick={true}>
                 <div className="form">
-                <input
-                type="text"
-                required
-                name="title"
-                value= {this.state.title}
-                onChange={ this.handleChange }
-                />
-                <input
-                type="text"
-                required
-                name="genre"
-                value= {this.state.genre}
-                onChange={ this.handleChange }
-                />
-                <input 
-                    type="number"
-                    required
-                    name="year"
-                    value={this.state.year}
-                    onChange={this.handleChange}
-                />
-                <button className="update-btn" onClick={this.update}>Update</button>
+                    <input
+                        type="text"
+                        required
+                        name="title"
+                        value= {this.state.title}
+                        onChange={ this.handleChange }
+                    />
+                    <input
+                        type="text"
+                        required
+                        name="genre"
+                        value= {this.state.genre}
+                        onChange={ this.handleChange }
+                    />
+                    <input 
+                        type="number"
+                        required
+                        name="year"
+                        value={this.state.year}
+                        onChange={this.handleChange}
+                    />
+                    <button className="update-btn" onClick={this.update}>Update</button>
                 </div>
             </Modal>
             </>
