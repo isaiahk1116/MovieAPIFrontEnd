@@ -6,6 +6,7 @@ Movies to Watch Later React App
 * Runs on http:/localhost:3000
 * User can add, delete, and update any movie
 * Link to API: https://github.com/isaiahk1116/MovieRestAPI
+* Note: API must be running for this app to work.
 
 # Tools
 * React JS
