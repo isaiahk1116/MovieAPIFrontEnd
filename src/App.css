@@ -2,13 +2,17 @@ body {
     background-color: #191970;
 }
 
+button {
+    font-family: Tahoma, sans-serif;
+}
+
+button:focus {
+    outline: none;
+}
+
 .App {
     width: 450px;
     margin: 0 auto;
-}
-
-button {
-    font-family: Tahoma, sans-serif;
 }
 
 .btn {
@@ -51,12 +55,12 @@ button {
     margin: 5px;
 }
 
-.table {
-    font-family: Tahoma, sans-serif;
-}
-
 .pop-up {
     width: 450px;
     margin: 0 auto;
-    margin-top: 375px;
+    margin-top: 400px;
+}
+
+.table {
+    font-family: Tahoma, sans-serif;
 }

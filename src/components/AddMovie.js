@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
     constructor(props) {
         super(props)
 
+        // Initialize attributes of a new movie entry
         this.state = {
             title: '',
             genre: '',
@@ -12,6 +13,7 @@ class AddMovie extends React.Component {
         }
     }
 
+    // Text dynamically changes in the input field as the user is typing
     handleChange = e => {
         e.preventDefault();
 
@@ -20,6 +22,7 @@ class AddMovie extends React.Component {
         })
     }
 
+    // Sends the current state to potentially be added to the database. Then resets state.
     clickHandler = e => {
         e.preventDefault();
 
@@ -32,6 +35,7 @@ class AddMovie extends React.Component {
         })
     }
 
+    // Displays the form to submit a new movie
     render() {
         return (
             <div className="form">
@@ -42,7 +46,7 @@ class AddMovie extends React.Component {
                     name="title"
                     value={this.state.title}
                     onChange={this.handleChange}
-                ></input>
+                />
                 <input 
                     type="text"
                     required
@@ -50,7 +54,7 @@ class AddMovie extends React.Component {
                     name="genre"
                     value={this.state.genre}
                     onChange={this.handleChange}
-                ></input>
+                />
                 <input 
                     type="number"
                     required
@@ -58,7 +62,7 @@ class AddMovie extends React.Component {
                     name="year"
                     value={this.state.year}
                     onChange={this.handleChange}
-                ></input>
+                />
                 <button className="btn" onClick={this.clickHandler}>Add</button>
             </div>
         )
