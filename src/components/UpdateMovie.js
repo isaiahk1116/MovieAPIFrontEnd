@@ -52,8 +52,9 @@ class UpdateMovie extends React.Component {
     render() {
         return(
             <>
-            <button onClick={this.openModal}>Update</button>
-            <Modal isOpen={this.state.modalIsOpen} ariaHideApp={false} onRequestClose={() => this.setState({ modalIsOpen: false })} shouldCloseOnOverlayClick={true}>
+            <button className="update-btn" onClick={this.openModal}>Update</button>
+            <Modal className="pop-up" isOpen={this.state.modalIsOpen} ariaHideApp={false} onRequestClose={() => this.setState({ modalIsOpen: false })} shouldCloseOnOverlayClick={true}>
+                <div className="form">
                 <input
                 type="text"
                 required
@@ -75,7 +76,8 @@ class UpdateMovie extends React.Component {
                     value={this.state.year}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.update}>Update</button>
+                <button className="update-btn" onClick={this.update}>Update</button>
+                </div>
             </Modal>
             </>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieService from '../services/MovieService';
-import UpdateMovie from './UpdateMovie.js';
+import UpdateMovie from './UpdateMovie';
+import AddMovie from './AddMovie';
 
 class MovieComponent extends React.Component {
     constructor(props) {
@@ -32,9 +33,9 @@ class MovieComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Movies to Watch Later</h1>
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
                             <td>Title</td>
@@ -51,13 +52,13 @@ class MovieComponent extends React.Component {
                                     <td>{movie.genre}</td>
                                     <td>{movie.year}</td>
                                     <td><UpdateMovie movie={movie} /></td>
-                                    <td><button onClick={this.clickHandler(movie)}>Delete</button></td>
+                                    <td><button className="delete-btn" onClick={this.clickHandler(movie)}>x</button></td>
                                 </tr>
                             )
                         }
                     </tbody>
                 </table>
-                
+                <AddMovie />
             </div>
         )
     }

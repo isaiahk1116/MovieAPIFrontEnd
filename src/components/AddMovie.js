@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="form">
                 <input 
                     type="text"
                     required
@@ -59,7 +59,7 @@ class AddMovie extends React.Component {
                     value={this.state.year}
                     onChange={this.handleChange}
                 ></input>
-                <button onClick={this.clickHandler}>Add Movie</button>
+                <button className="btn" onClick={this.clickHandler}>Add</button>
             </div>
         )
     }
