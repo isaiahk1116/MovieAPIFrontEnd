@@ -1,90 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
-import MovieService from '../services/MovieService';
+import { putMovie } from '../services/MovieService';
 
-class UpdateMovie extends React.Component {
-    constructor(props) {
-        super(props)
-
-        // Initaliizes state with props values
-        this.state = {
-            modalIsOpen: false,
-            id: this.props.movie.id,
-            title: this.props.movie.title,
-            genre: this.props.movie.genre,
-            year: this.props.movie.year
-        }
-    }
+const UpdateMovie = ({ movie }) => {
+    const [modal, setModal] = useState({modalIsOpen: false});
+    const [movieState, setMovieState] = useState({ id: movie.id, title: movie.title, genre: movie.genre, year: movie.year });
 
     // Opens the modal 
-    openModal = e => {
+    const openModal = e => {
         e.preventDefault();
 
-        this.setState({ 
+        setModal({ 
             modalIsOpen: true,
         })
     }
 
-    // Text dynamically changes in the input field as the user is typing
-    handleChange = e => {
-        e.preventDefault();
-
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
     // Sends a movie object to be potentially updated in the database. Then closes the modal.
-    update = e => {
+    const update = e => {
         e.preventDefault();
 
-        let movie = {
-            id: this.state.id,
-            title: this.state.title,
-            genre: this.state.genre,
-            year: this.state.year
+        let updatedMovie = {
+            id: movieState.id,
+            title: movieState.title,
+            genre: movieState.genre,
+            year: movieState.year
         }
 
-        MovieService.putMovie(movie)
+        putMovie(updatedMovie)
 
-        this.setState({ modalIsOpen: false })
+        setModal({ modalIsOpen: false })
     }
 
     // Displays the modal
-    render() {
-        return(
-            <>
-            <button className="update-btn" onClick={this.openModal}>Update</button>
-            {/* onReuqestClose and shouldCloseonOverlayClick enable the user to close the modal by clicking outside of it */}
-            <Modal className="pop-up" isOpen={this.state.modalIsOpen} ariaHideApp={false} onRequestClose={() => this.setState({ modalIsOpen: false })} shouldCloseOnOverlayClick={true}>
+    return(
+        <>
+            <button className="update-btn" onClick={openModal}>Update</button>
+            {/* onRequestClose and shouldCloseonOverlayClick enable the user to close the modal by clicking outside of it */}
+            <Modal className="pop-up" isOpen={modal.modalIsOpen} ariaHideApp={false} onRequestClose={() => setModal({ modalIsOpen: false })} shouldCloseOnOverlayClick={true}>
                 <div className="form">
                     <input
                         type="text"
                         required
                         name="title"
-                        value= {this.state.title}
-                        onChange={ this.handleChange }
+                        value= {movieState.title}
+                        onChange={(e) => setMovieState({ ...movieState, title: e.target.value })}
                     />
                     <input
                         type="text"
                         required
                         name="genre"
-                        value= {this.state.genre}
-                        onChange={ this.handleChange }
+                        value= {movieState.genre}
+                        onChange={(e) => setMovieState({ ...movieState, genre: e.target.value })}
                     />
                     <input 
                         type="number"
                         required
                         name="year"
-                        value={this.state.year}
-                        onChange={this.handleChange}
+                        value={movieState.year}
+                        onChange={(e) => setMovieState({ ...movieState, year: e.target.value })}
                     />
-                    <button className="update-btn" onClick={this.update}>Update</button>
+                    <button className="update-btn" onClick={update}>Update</button>
                 </div>
             </Modal>
-            </>
-        )
-    }
-}
+        </>
+    );
+};
 
 export default UpdateMovie;
