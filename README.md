@@ -16,9 +16,9 @@ Movies to Watch Later React App
 # Examples
 ![MovieAPIFrontEndAddss](https://user-images.githubusercontent.com/35928224/139534887-c40f09dd-5391-4dc0-b60b-2fd990fec307.png)
 
-![MovieAPIFrontEndUpdatess](https://user-images.githubusercontent.com/35928224/106366927-fff5fa80-630c-11eb-871e-c3ec7561575a.png)
+![MovieAPIFrontEndUpdatess](https://user-images.githubusercontent.com/35928224/139534979-5d81137b-3044-4dfd-ab64-e05985ac91a0.png)
 
-![MovieAPIFrontEndResponsivess](https://user-images.githubusercontent.com/35928224/106366935-0a17f900-630d-11eb-826e-8fb7fc4135fb.png)
+
 
 
 
